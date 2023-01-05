@@ -1,0 +1,47 @@
+{
+  "resource": "/graphql",
+  "path": "/graphql",
+  "httpMethod": "POST",
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer abc123"
+  },
+  "multiValueHeaders": {
+    "Content-Type": ["application/json"],
+    "Authorization": ["Bearer abc123"]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourcePath": "/graphql",
+    "httpMethod": "POST",
+    "extendedRequestId": "abc123",
+    "requestTime": "01/01/2022 12:00:00",
+    "path": "/prod/graphql",
+    "accountId": "123456789012",
+    "protocol": "HTTP/1.1",
+    "stage": "prod",
+    "domainPrefix": "abc123",
+    "requestTimeEpoch": 1609459200000,
+    "requestId": "abc123",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "123.456.789.012",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "PostmanRuntime/7.26.2",
+      "user": null
+    },
+    "domainName": "abc123.execute-api.us-east-1.amazonaws.com",
+    "apiId": "abc123"
+  },
+  "body": "{\"query\":\"query { state } \"}",
+  "isBase64Encoded": false
+}

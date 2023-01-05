@@ -1,0 +1,39 @@
+{
+  "name": "apollo-graphql-serverless",
+  "description": "Sample Apollo GraphQL Serverless App",
+  "version": "0.0.1",
+  "private": true,
+  "main": "graphqlServer.js",
+  "type": "module",
+  "author": "javatask",
+  "dependencies": {
+    "@apollo/server": "^4.3.0",
+    "@as-integrations/aws-lambda": "^1.1.0",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "esbuild": "0.16.12",
+    "jest": "^29.2.1"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
+    "local-run": "npm run build && sam local invoke --event ./events/graphql-post.json --env-vars env.json GraphqlServerFunction",
+    "local-api": "npm run build && sam local start-api --env-vars env.json",
+    "build": "sam build",
+    "deploy": "sam deploy",
+    "build-deploy": "npm run build && npm run deploy",
+    "cloud-watch": "sam sync --stack-name graphql-serverless --watch",
+    "cloud-logs": "sam logs -n GraphqlServerFunction --stack-name graphql-serverless"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)",
+      "**/__tests__/**/*.mjs?(x)",
+      "**/?(*.)+(spec|test).mjs?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ]
+  }
+}

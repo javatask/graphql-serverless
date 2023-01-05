@@ -1,0 +1,1 @@
+Sample GraphQL serveless application build with AWS SAM
