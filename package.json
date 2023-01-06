@@ -20,7 +20,7 @@
     "local-run": "npm run build && sam local invoke --event ./events/graphql-post.json --env-vars env.json GraphqlServerFunction",
     "local-api": "npm run build && sam local start-api --env-vars env.json",
     "build": "sam build",
-    "deploy": "sam deploy",
+    "deploy": "sam deploy --guided",
     "build-deploy": "npm run build && npm run deploy",
     "cloud-watch": "sam sync --stack-name graphql-serverless --watch",
     "cloud-logs": "sam logs -n GraphqlServerFunction --stack-name graphql-serverless"
