@@ -1,3 +1,5 @@
+# Article
+This code usage was described in my series of articles on https://blog.javatask.dev/series/awssam
 # Sample GraphQL serveless application build with AWS SAM
 ## Quick start
 ```
