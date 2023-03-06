@@ -19,7 +19,7 @@ Resources:
     Metadata:
       BuildMethod: esbuild
     Properties:
-      Handler: src/handlers/graphqlServer.handler
+      Handler: src/handlers/graphqlServer.default
       Runtime: nodejs18.x
       Architectures:
         - x86_64
