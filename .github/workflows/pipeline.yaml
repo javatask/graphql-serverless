@@ -38,8 +38,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install npm dependencies
+        run: npm install
       - run: |
-          # trigger the tests here
+          npm test
 
   delete-feature:
     if: startsWith(github.event.ref, 'feature') && github.event_name == 'delete'
@@ -115,6 +120,12 @@ jobs:
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install npm dependencies
+        run: npm install
 
       - name: Build resources
         run: sam build --template ${SAM_TEMPLATE} --use-container
