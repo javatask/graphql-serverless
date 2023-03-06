@@ -16,7 +16,7 @@ env:
   TESTING_STACK_NAME: graphql-sam-sample
   TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::260533684147:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-VJZ1CU5Q10B1
   TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::260533684147:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-N5KMGO1GRUR5
-  TESTING_ARTIFACTS_BUCKET: aws-sam-cli-managed-default-samclisourcebucket-hahv372fs32m
+  TESTING_ARTIFACTS_BUCKET: javatask-dev-bucket-frankfurt
   # If there are functions with "Image" PackageType in your template,
   # uncomment the line below and add "--image-repository ${TESTING_IMAGE_REPOSITORY}" to
   # testing "sam package" and "sam deploy" commands.
@@ -56,7 +56,7 @@ jobs:
           use-installer: true
 
       - name: Assume the testing pipeline user role
-        uses: aws-actions/configure-aws-credentials@v1-node16
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ env.PIPELINE_USER_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.PIPELINE_USER_SECRET_ACCESS_KEY }}
