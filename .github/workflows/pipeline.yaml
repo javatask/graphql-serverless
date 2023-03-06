@@ -91,6 +91,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install npm dependencies
+        run: npm install
       - run: sam build --template ${SAM_TEMPLATE} --use-container
 
       - name: Assume the testing pipeline user role
