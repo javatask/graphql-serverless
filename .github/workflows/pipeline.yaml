@@ -229,7 +229,7 @@ jobs:
         env:
           GRAPHQL_URL: $GRAPHQL_CF_URL
         with:
-          filename: integration/test.js
+          filename: integration/load.js
 
   deploy-prod:
     if: github.ref == 'refs/heads/main'
