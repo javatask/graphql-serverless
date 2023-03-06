@@ -215,15 +215,17 @@ jobs:
             --no-fail-on-empty-changeset \
             --role-arn ${TESTING_CLOUDFORMATION_EXECUTION_ROLE}
 
+      - name: Get GraphQL endpoint from testing stack
+        run: |
+          GRAPHQL_CF_URL=$(aws cloudformation describe-stacks --stack-name ${TESTING_STACK_NAME} --query 'Stacks[0].Outputs[?OutputKey==`WebEndpoint`].OutputValue' --output text)
+
   integration-test:
     if: github.ref == 'refs/heads/main'
     needs: [deploy-testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Get GraphQL endpoint from testing stack
-        run: |
-          GRAPHQL_CF_URL=$(aws cloudformation describe-stacks --stack-name ${TESTING_STACK_NAME} --query 'Stacks[0].Outputs[?OutputKey==`WebEndpoint`].OutputValue' --output text)
+
       - name: Run k6 local test
         uses: grafana/k6-action@v0.2.0
         env:
